@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Create Jenkins Job
+    - name: Create Jenkins Jobs
       community.general.jenkins_job:
         config: "{{ lookup('file', 'test.xml') }}"
         name: test-create-from-ansible

@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Copy xml file
+    - name: Copy Xml file
       ansible.builtin.copy:
         src: test.xml
         dest: /tmp/test.xml

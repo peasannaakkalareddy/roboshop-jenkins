@@ -2,6 +2,11 @@
   hosts: localhost
   connection: local
   tasks:
+    - name: Copy Xml file
+      ansible.builtin.copy:
+        src: test.xml
+        dest: /tmp/test.xml
+
     - name: Create jenkins job
       community.general.jenkins_job:
         config: "{{ lookup('file', 'test.xml') }}"

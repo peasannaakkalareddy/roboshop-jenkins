@@ -1,5 +1,6 @@
 - name: Create Jenkins Jobs
   hosts: all
+  connection: local
   tasks:
     - name: Create a jenkins job using basic authentication
       community.general.jenkins_job:

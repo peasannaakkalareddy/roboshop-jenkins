@@ -4,4 +4,4 @@ sjobs:
   - { git_repo_url: https://github.com/peasannaakkalareddy/aws-ssm-parameter-store.git, job_name: ssm-parameters }
 
 mjobs:
-  - { git_repo_url: https://github.com/raghudevopsb72/cart.git, job_name: cart }
+  - { git_repo_url: https://github.com/peasannaakkalareddy/cart.git, job_name: cart }

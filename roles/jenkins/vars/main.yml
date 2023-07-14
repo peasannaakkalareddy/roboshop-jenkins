@@ -5,3 +5,7 @@ sjobs:
 
 mjobs:
   - { git_repo_url: https://github.com/peasannaakkalareddy/cart.git, job_name: cart }
+  - { git_repo_url: https://github.com/peasannaakkalareddy/user.git, job_name: user }
+  - { git_repo_url: https://github.com/peasannaakkalareddy/catalogue.git, job_name: catalogue }
+  - { git_repo_url: https://github.com/peasannaakkalareddy/shipping.git, job_name: shipping }
+  - { git_repo_url: https://github.com/peasannaakkalareddy/cart.payment, job_name: payment }

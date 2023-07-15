@@ -57,7 +57,7 @@ def call() {
                 steps {
                     sh 'npm install'
                     sh 'echo $TAG_NAME >VERSION'
-                    sh 'zip -r ${component}-${TAG_NAME}.zip node_modules server.js VERSION' ${schema_dir}
+                    sh 'zip -r ${component}-${TAG_NAME}.zip node_modules server.js VERSION ${schema_dir}'
                     sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
                     sh 'echo Release Application'

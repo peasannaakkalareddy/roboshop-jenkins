@@ -20,9 +20,9 @@ def call() {
 
             stage('Code Quality') {
                 steps {
-//                    sh 'echo Code Quality'
-                   sh 'ls -l'
-                    sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
+                    sh 'echo Code Quality'
+                    sh 'ls -l'
+                    //   sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
                 }
             }
 
@@ -44,13 +44,21 @@ def call() {
                 }
             }
 
-        }
+            stage('Release Application') {
+                steps {
+                    sh 'env'
+                    sh 'echo Release Application'
+                }
 
-        post {
-            always {
-                cleanWs()
             }
-        }
 
+
+            post {
+                always {
+                    cleanWs()
+                }
+            }
+
+        }
     }
 }

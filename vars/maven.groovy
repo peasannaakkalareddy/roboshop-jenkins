@@ -22,9 +22,9 @@ def call() {
 
             stage('Code Quality') {
                 steps {
-//          sh 'ls -l'
-        sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.qualitygate.wait=true -Dsonar.java.binaries=./target'
-                  //  sh 'echo COde Quality'
+         sh 'ls -l'
+       // sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.qualitygate.wait=true -Dsonar.java.binaries=./target'
+                    sh 'echo COde Quality'
                 }
             }
 

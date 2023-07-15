@@ -57,7 +57,7 @@ def call() {
                     sh 'mvn package ; cp target/${component}-1.0.jar ${component}.jar'
                     sh 'echo $TAG_NAME >VERSION'
                     sh 'zip -r ${component}-${TAG_NAME}.zip ${component}.jar VERSION'
-                    sh 'curl -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/${component}-${TAG_NAME}.zip'
+                    sh 'curl -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
                     sh 'echo Release Application'
                 }

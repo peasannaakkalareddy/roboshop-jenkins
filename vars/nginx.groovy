@@ -10,10 +10,6 @@ def call() {
         options {
             ansiColor('xterm')
         }
-        environment {
-            NEXUS = credentials('NEXUS')
-        }
-
 //        parameters {
 //            choice(name: 'env', choices: ['dev', 'prod'], description: 'Pick environment')
 //         //   choice(name: 'action', choices: ['apply', 'destroy'], description: 'Pick environment')
@@ -24,9 +20,9 @@ def call() {
 
             stage('Code Quality') {
                 steps {
-                   sh 'echo Code Quality'
-                   sh 'ls -l'
-                 //   sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
+                    sh 'echo Code Quality'
+                    sh 'ls -l'
+                    //   sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
                 }
             }
 
@@ -57,8 +53,10 @@ def call() {
                 steps {
                     sh 'npm install'
                     sh 'echo $TAG_NAME >VERSION'
-                    sh 'zip -r ${component}-${TAG_NAME}.zip node_modules server.js VERSION'
-                    sh 'curl -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/cart/${component}-${TAG_NAME}.zip'
+                    sh 'zip -r ${component}-${TAG_NAME}.zip *'
+                    // Deleting this file as it is not needed.
+                    sh 'zip -d ${component}-${TAG_NAME}.zip Jenkinsfile'
+                    sh 'curl -v -u admin:admin --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/cart/${component}-${TAG_NAME}.zip'
 
                     sh 'echo Release Application'
                 }

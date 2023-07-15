@@ -51,8 +51,10 @@ def call() {
                     }
                 }
                 steps {
-                    sh 'env'
-                    sh 'curl -v -u admin:admin --upload-file server.js http://172.31.87.83:8081/repository/cart/server.js'
+                    sh 'npm install'
+                    sh 'echo $TAG_NAME >VERSION'
+                    sh 'zip -r ${component}-${TAG_NAME}.zip node_modules server.js VERSION'
+                    sh 'curl -v -u admin:admin --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/cart/${component}-${TAG_NAME}.zip'
 
                     sh 'echo Release Application'
                 }

@@ -53,6 +53,7 @@ def call() {
                         env.TAG_NAME ==~ ".*"
                     }
                 }
+
                 steps {
                     sh 'npm install'
                     sh 'echo $TAG_NAME >VERSION'

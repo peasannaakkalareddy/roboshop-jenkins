@@ -10,29 +10,28 @@ def call() {
         options {
             ansiColor('xterm')
         }
-        parameters {
-            choice(name: 'env', choices: ['dev', 'prod'], description: 'Pick environment')
-            choice(name: 'action', choices: ['apply', 'destroy'], description: 'Pick environment')
-        }
+
 
         stages {
 
             stage('Code Compile') {
                 steps {
-                    sh 'echo Code Compile'
+                    sh 'mvn compile'
                 }
             }
+
             stage('Code Quality') {
                 steps {
-//                    sh 'echo Code Quality'
-                    // sh 'ls -l'
-                     sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
+//          sh 'ls -l'
+//          sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.qualitygate.wait=true -Dsonar.java.binaries=./target'
+                    sh 'echo COde Quality'
                 }
             }
 
             stage('Unit Test Cases') {
                 steps {
                     sh 'echo Unit tests'
+                    //sh 'mvn test'
                 }
             }
 
@@ -48,6 +47,7 @@ def call() {
                 }
             }
 
+
         }
 
         post {
@@ -57,4 +57,6 @@ def call() {
         }
 
     }
+
+
 }

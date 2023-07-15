@@ -10,25 +10,21 @@ def call() {
         options {
             ansiColor('xterm')
         }
-        parameters {
-            choice(name: 'env', choices: ['dev', 'prod'], description: 'Pick environment')
-            choice(name: 'action', choices: ['apply', 'destroy'], description: 'Pick environment')
-        }
+
 
         stages {
 
-
             stage('Code Quality') {
                 steps {
-
-                    // sh 'ls -l'
-                     sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
+                    sh 'ls -l'
+                    sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.qualitygate.wait=true'
                 }
             }
 
             stage('Unit Test Cases') {
                 steps {
                     sh 'echo Unit tests'
+                    sh 'python3.6 -m unittest'
                 }
             }
 
@@ -44,6 +40,7 @@ def call() {
                 }
             }
 
+
         }
 
         post {
@@ -53,4 +50,6 @@ def call() {
         }
 
     }
+
+
 }

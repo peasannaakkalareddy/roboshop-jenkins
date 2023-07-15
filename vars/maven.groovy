@@ -10,7 +10,9 @@ def call() {
         options {
             ansiColor('xterm')
         }
-
+        environment {
+            NEXUS = credentials('NEXUS')
+        }
 
         stages {
 

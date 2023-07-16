@@ -60,7 +60,7 @@ def call() {
                     sh 'zip -r ${component}-${TAG_NAME}.zip *'
                     // Deleting this file as it is not needed.
                     sh 'zip -d ${component}-${TAG_NAME}.zip Jenkinsfile'
-                    sh 'curl -f -v -u admin:admin --upload-file ${component}-${TAG_NAME}.zip http://172.31.87.83:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+                    sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://3.91.175.12:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
                     sh 'echo Release Application'
                 }

@@ -26,7 +26,7 @@ def call() {
                 steps {
                    sh 'echo Code Quality'
                    sh 'ls -l'
-                 //   sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://172.31.80.236:9000 -Dsonar.login=admin -Dsonar.password=admin123'
+                 //   sh 'sonar-scanner -Dsonar.projectKey=${component} -Dsonar.host.url=http://34.227.105.159:9000 -Dsonar.login=admin -Dsonar.password=admin123'
                 }
             }
 

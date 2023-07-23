@@ -3,7 +3,7 @@
     name: "{{item.job_name}}"
     user: admin
     password: admin
-    url: http://172.31.84.136:8080
+    url: http://172.31.94.229:8080
   register: jenkins_job_status
   ignore_errors: true
 
@@ -18,6 +18,6 @@
     config: "{{ lookup('file', '/tmp/test.xml') }}"
     name: "{{item.job_name}}"
     password: admin
-    url: http://172.31.84.136:8080
+    url: http://172.31.94.229:8080
     user: admin
   when: jenkins_job_status.failed or override

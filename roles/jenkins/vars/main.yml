@@ -12,3 +12,5 @@ mjobs:
   - { git_repo_url: https://github.com/peasannaakkalareddy/shipping.git, job_name: shipping }
   - { git_repo_url: https://github.com/peasannaakkalareddy/payment.git, job_name: payment }
   - { git_repo_url: https://github.com/peasannaakkalareddy/frontend.git, job_name: frontend }
+
+

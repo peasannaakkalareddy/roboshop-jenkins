@@ -4,6 +4,8 @@ sjobs:
   - { git_repo_url: https://github.com/peasannaakkalareddy/aws-ssm-parameter-store.git, job_name: ssm-parameters, file_name: Jenkinsfile }
   - { git_repo_url: https://github.com/peasannaakkalareddy/aws-ssm-parameter-store.git, job_name: aws-ssm-ps-docker, file_name: Jenkinsfile-ps }
   - { git_repo_url: https://github.com/peasannaakkalareddy/roboshop-helm.git, job_name: roboshop-helm, file_name: Jenkinsfile }
+  - { git_repo_url: https://github.com/peasannaakkalareddy/schema-loader.git, job_name: schema-loader, file_name: Jenkinsfile }
+
 
 mjobs:
   - { git_repo_url: https://github.com/peasannaakkalareddy/cart.git, job_name: cart }
